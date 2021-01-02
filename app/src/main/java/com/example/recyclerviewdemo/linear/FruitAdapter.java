@@ -36,23 +36,28 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = viewHolder.getAdapterPosition();
-                Toast.makeText(mContext, "你点击了itemView-" + position, Toast.LENGTH_SHORT).show();
+                if (mOnItemClickListener != null) {
+                    int position = viewHolder.getAdapterPosition();
+                    mOnItemClickListener.onItemViewClick(position);
+                }
             }
         });
         viewHolder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = viewHolder.getAdapterPosition();
-                Toast.makeText(mContext, mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+                if (mOnItemClickListener != null) {
+                    int position = viewHolder.getAdapterPosition();
+                    mOnItemClickListener.onItemImageClick(position);
+                }
             }
         });
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int position = viewHolder.getAdapterPosition();
-                if (mOnItemClickListener != null)
-                    mOnItemClickListener.onItemChange(position);
+                if (mOnItemClickListener != null) {
+                    int position = viewHolder.getAdapterPosition();
+                    mOnItemClickListener.onItemTextClick(position);
+                }
             }
         });
         return viewHolder;
@@ -82,7 +87,11 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
     }
 
     public interface OnItemClickListener {
-        void onItemChange(int position);
+        void onItemViewClick(int position);
+
+        void onItemImageClick(int position);
+
+        void onItemTextClick(int position);
     }
 
     private OnItemClickListener mOnItemClickListener;

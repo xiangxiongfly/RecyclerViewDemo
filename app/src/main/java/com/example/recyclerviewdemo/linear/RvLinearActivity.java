@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -106,8 +107,18 @@ public class RvLinearActivity extends AppCompatActivity implements FruitAdapter.
     }
 
     @Override
-    public void onItemChange(int position) {
-        mDatas.get(position).setName("修改");
+    public void onItemViewClick(int position) {
+        Toast.makeText(this, "你点击了第" + position, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemImageClick(int position) {
+        Toast.makeText(this, "你点击的图片是" + mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onItemTextClick(int position) {
+        mDatas.get(position).setName("修改了第" + position + "位置");
         mAdapter.notifyItemChanged(position);
     }
 }

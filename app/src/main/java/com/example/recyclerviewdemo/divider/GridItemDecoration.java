@@ -18,9 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
  * RecyclerView网格分割线
  */
 public class GridItemDecoration extends RecyclerView.ItemDecoration {
-    //分割线大小
     private int mDividerSize = 10;
-
     private Paint mPaint;
     private final Context mContext;
 
