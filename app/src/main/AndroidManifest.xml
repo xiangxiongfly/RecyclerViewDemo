@@ -19,6 +19,7 @@
         <activity android:name=".linear.RvLinearActivity"></activity>
         <activity android:name=".grid.RvGridActivity"></activity>
         <activity android:name=".staggered.StaggeredGridActivity"></activity>
+        <activity android:name=".diffutil.DiffUtilActivity"></activity>
     </application>
 
 </manifest>

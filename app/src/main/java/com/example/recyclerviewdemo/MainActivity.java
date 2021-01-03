@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.recyclerviewdemo.diffutil.DiffUtilActivity;
 import com.example.recyclerviewdemo.grid.RvGridActivity;
 import com.example.recyclerviewdemo.linear.RvLinearActivity;
 import com.example.recyclerviewdemo.staggered.StaggeredGridActivity;
@@ -28,5 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickStaggeredGrid(View view) {
         startActivity(new Intent(this, StaggeredGridActivity.class));
+    }
+
+    public void clickDiffUtil(View view) {
+        startActivity(new Intent(this, DiffUtilActivity.class));
     }
 }
